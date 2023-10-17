@@ -14,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDto {
-    private String id;
+    private Long id;
     private String name;
 
     public Product toProduct() {

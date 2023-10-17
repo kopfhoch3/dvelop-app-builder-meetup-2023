@@ -21,7 +21,7 @@ public class ProductController {
     private final ProductRepository productRepository;
 
     @GetMapping("/products/{id}")
-    public ResponseEntity<Product> getProduct(@PathVariable UUID id) {
+    public ResponseEntity<Product> getProduct(@PathVariable Long id) {
         log.info("Find product with id: {}", id);
         return productRepository.findById(id)
                 .map(ResponseEntity::ok)

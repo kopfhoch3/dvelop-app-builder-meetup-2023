@@ -14,14 +14,13 @@ class BasicSimulation extends Simulation {
     .userAgentHeader("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0")
 
   val scn = scenario("Scenario Name")
-    .feed(UuidFeeder.feeder)// A scenario is a chain of requests and pauses
     .exec(http("get All products")
       .get("/products"))
     .pause(10)
     .exec(http("Save new product")
       .post("/products")
       .header("Content-Type", "application/json")
-      .body(StringBody("""{ "id": "${uuid}", "name": "new product" }"""))
+      .body(StringBody("""{ "name": "new product" }"""))
       .check(
         jmesPath("id").saveAs("insertId")
       )
