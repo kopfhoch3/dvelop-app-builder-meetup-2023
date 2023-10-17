@@ -22,7 +22,7 @@ public class ProductController {
 
     @GetMapping("/products/{id}")
     public ResponseEntity<Product> getProduct(@PathVariable Long id) {
-        log.info("Find product with id: {}", id);
+        //log.info("Find product with id: {}", id);
         return productRepository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -30,14 +30,14 @@ public class ProductController {
 
     @GetMapping("/products")
     public List<Product> getLatest() {
-        log.info("Find latest 20 products");
-        return productRepository.findAll(PageRequest.of(0, 10_000,
+        //log.info("Find latest 20 products");
+        return productRepository.findAll(PageRequest.of(0, 1000,
                                                         Sort.by("instant").descending())).toList();
     }
 
     @PostMapping("/products")
     public Product saveProduct(@RequestBody ProductDto product) {
-        log.info("Save product witn name: {}", product);
+        //log.info("Save product witn name: {}", product);
         return productRepository.save(product.toProduct());
     }
 }

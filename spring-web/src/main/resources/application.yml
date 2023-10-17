@@ -10,3 +10,7 @@ spring:
     username: testuser
     password: changeme
     driver-class-name: org.postgresql.Driver
+  main:
+    lazy-initialization: true
+  jmx:
+    enabled: false

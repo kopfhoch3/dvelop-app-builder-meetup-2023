@@ -70,6 +70,14 @@
                         </exclude>
                     </excludes>
                 </configuration>
+                <!--<executions>
+                    <execution>
+                        <id>process-aot</id>
+                        <configuration>
+                            <profiles>benchmark</profiles>
+                        </configuration>
+                    </execution>
+                </executions>-->
             </plugin>
         </plugins>
     </build>

@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.Instant;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Data
@@ -14,13 +15,13 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDto {
-    private String id;
+    private Long id;
     private String name;
 
     public Product toProduct() {
         return Product.builder()
                       .name(name)
-                      .instant(Instant.now())
+                      .instant(OffsetDateTime.now())
                       .build();
     }
 }

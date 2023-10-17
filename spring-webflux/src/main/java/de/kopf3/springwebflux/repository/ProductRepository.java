@@ -9,9 +9,9 @@ import reactor.core.publisher.Flux;
 import java.util.UUID;
 
 @Repository
-public interface ProductRepository extends ReactiveCrudRepository<Product, UUID> {
+public interface ProductRepository extends ReactiveCrudRepository<Product, Long> {
 
-    @Query("SELECT * FROM product ORDER BY instant DESC LIMIT 20")
+    @Query("SELECT * FROM product ORDER BY instant DESC LIMIT 1000")
     Flux<Product> findLatest();
 
 }

@@ -30,7 +30,7 @@ class BasicSimulation extends Simulation {
       .get("/products/${insertId}"))
 
   setUp(scn.inject(
-    rampConcurrentUsers(0) to (2000) during (60 seconds),
-    constantConcurrentUsers(2000) during (2 minutes))
+    rampConcurrentUsers(0) to (1500) during (60 seconds),
+    constantConcurrentUsers(1500) during (2 minutes))
     .protocols(httpProtocol))
 }

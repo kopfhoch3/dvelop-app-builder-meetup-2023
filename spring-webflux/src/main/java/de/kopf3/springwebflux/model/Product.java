@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.domain.Persistable;
 
 import java.time.Instant;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Data
@@ -18,8 +19,8 @@ import java.util.UUID;
 public class Product {
 
     @Id
-    private UUID id;
+    private Long id;
     private String name;
-    private Instant instant;
+    private OffsetDateTime instant;
 
 }

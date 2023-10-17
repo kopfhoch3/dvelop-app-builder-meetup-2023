@@ -20,8 +20,8 @@ public class ProductController {
     private final ProductRepository productRepository;
 
     @GetMapping("/products/{id}")
-    public Mono<ResponseEntity<Product>> getProduct(@PathVariable UUID id) {
-        log.info("Find product with id: {}", id);
+    public Mono<ResponseEntity<Product>> getProduct(@PathVariable Long id) {
+        //log.info("Find product with id: {}", id);
         return productRepository.findById(id)
                                 .map(ResponseEntity::ok)
                                 .defaultIfEmpty(ResponseEntity.notFound().build());
@@ -29,13 +29,13 @@ public class ProductController {
 
     @GetMapping("/products")
     public Flux<Product> getLatest() {
-        log.info("Find latest 20 products");
+        //log.info("Find latest 20 products");
         return productRepository.findLatest();
     }
 
     @PostMapping("/products")
     public Mono<Product> saveProduct(@RequestBody Mono<ProductDto> product) {
-        log.info("Save product with name: {}", product);
+        //log.info("Save product with name: {}", product);
         return product.flatMap(productDto -> this.productRepository.save(productDto.toProduct()));
     }
 }
